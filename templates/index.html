@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NumPy Math Toolkit</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #1f2937, #111827);
+            color: #f9fafb;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            background: #1e293b;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .section-title {
+            color: #60a5fa;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .btn-custom {
+            background: #3b82f6;
+            border: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        input, textarea {
+            background: #020617 !important;
+            color: #f9fafb !important;
+            border: 1px solid #475569 !important;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #94a3b8 !important;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #3b82f6 !important;
+            box-shadow: 0 0 5px #3b82f6;
+        }
+
+        .result-box {
+            background: #020617;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #475569;
+            color: #38bdf8;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container py-5">
+    <h1 class="text-center mb-5">NumPy Math Toolkit</h1>
+
+    <div class="row g-4">
+
+        <!-- MATRIX -->
+        <div class="col-md-6">
+            <div class="card p-4">
+                <h4 class="section-title">🧮 Matrix Operations</h4>
+
+                <form method="POST">
+                    <input type="hidden" name="section" value="matrix">
+
+                    <label class="mb-1">Matrix A</label>
+                    <textarea class="form-control mb-3" name="matrix_a" placeholder="1,2;3,4"></textarea>
+
+                    <label class="mb-1">Matrix B</label>
+                    <textarea class="form-control mb-3" name="matrix_b" placeholder="5,6;7,8"></textarea>
+
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button name="operation" value="add" class="btn btn-custom">Add</button>
+                        <button name="operation" value="multiply" class="btn btn-custom">Multiply</button>
+                        <button name="operation" value="det" class="btn btn-warning">Determinant</button>
+                        <button name="operation" value="inv" class="btn btn-danger">Inverse</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="col-md-6">
+            <div class="card p-4">
+                <h4 class="section-title">📊 Statistics</h4>
+
+                <form method="POST">
+                    <input type="hidden" name="section" value="stats">
+
+                    <label class="mb-1">Enter Numbers</label>
+                    <input type="text" class="form-control mb-3" name="data" placeholder="1,2,3,4">
+
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button name="operation" value="mean" class="btn btn-custom">Mean</button>
+                        <button name="operation" value="median" class="btn btn-custom">Median</button>
+                        <button name="operation" value="std" class="btn btn-warning">Std Dev</button>
+                        <button name="operation" value="var" class="btn btn-danger">Variance</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- RESULT -->
+    <div class="mt-5">
+        <div class="card p-4">
+            <h4 class="section-title">📈 Result</h4>
+            <div class="result-box">
+<pre>{{ result }}</pre>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
